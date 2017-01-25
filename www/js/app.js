@@ -54,6 +54,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     templateUrl: 'templates/recoverpw.html',
     controller: 'RecoverpwCtrl'
   })
+  .state('selectmenu', {
+    url: '/selectmenu',
+    templateUrl: 'templates/menu-selection.html',
+    controller: 'selectmenuCtrl'
+  })
 
   .state('tab.home', {
     url: '/home',
