@@ -55,31 +55,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     controller: 'RecoverpwCtrl'
   })
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.home', {
+    url: '/home',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-home': {
+        templateUrl: 'templates/tab-home.html',
+        controller: 'HomeCtrl'
       }
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.discover', {
+      url: '/discover',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+        'tab-discover': {
+          templateUrl: 'templates/tab-discover.html',
+          controller: 'DiscoverCtrl'
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+    .state('tab.purchase', {
+      url: '/purchase',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'tab-purchase': {
+          templateUrl: 'templates/tab-purchase.html',
+          controller: 'PurchaseCtrl'
         }
       }
     })
