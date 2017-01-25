@@ -2,3 +2,11 @@
 	background: url('../img/background.jpg') no-repeat center;
 	padding-top: 50px;
 }
+.price{
+	color: red !important;
+	font-size: 1.3em !important;
+}
+.restaurant{
+	margin-top: 6px !important;
+	font-size: 1.3em !important;
+}
