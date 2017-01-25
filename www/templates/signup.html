@@ -1,0 +1,21 @@
+<ion-header-bar align-title="center">
+    <div class="buttons" >
+        <button class="button button-icon ion-android-arrow-back" ng-click="GoBack()"> Login</button>
+    </div>
+</ion-header-bar>
+<ion-content class="has-header login-background">
+<div class="list">
+  <label class="item item-input">
+    <span class="input-label">Username</span>
+    <input type="text" ng-model="newuser.name">
+  </label>
+  <label class="item item-input">
+    <span class="input-label">Password</span>
+    <input type="password" ng-model="newuser.password">
+  </label>
+
+</div>
+<button class="col col-33 col-offset-50 button button-dark" ng-click="Signup()">
+    Sign up
+</button>
+</ion-content>
