@@ -59,6 +59,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       templateUrl: 'templates/booking.html',
       controller: 'BookingCtrl'  
     })
+  .state('selectmenu', {
+    url: '/selectmenu',
+    templateUrl: 'templates/menu-selection.html',
+    controller: 'selectmenuCtrl'
+  })
+
   .state('tab.home', {
     url: '/home',
     views: {

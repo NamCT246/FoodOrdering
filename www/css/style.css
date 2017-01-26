@@ -18,3 +18,12 @@
   color: #3f51b5;
   text-align: center
 }
+
+.price{
+	color: red !important;
+	font-size: 1.3em !important;
+}
+.restaurant{
+	margin-top: 6px !important;
+	font-size: 1.3em !important;
+}
