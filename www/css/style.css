@@ -2,3 +2,19 @@
 	background: url('../img/background.jpg') no-repeat center;
 	padding-top: 50px;
 }
+.item-price{
+	padding-top: 30px;
+	font-size: 1.2em !important;
+}
+.item-booking{
+	border-bottom: 1px solid;
+}
+.input-booking{
+	border: 1px solid !important;
+	width: 100%;
+	border-radius: 10px;
+}
+.input-booking::-webkit-input-placeholder { 
+  color: #3f51b5;
+  text-align: center
+}

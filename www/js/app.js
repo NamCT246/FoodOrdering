@@ -54,7 +54,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     templateUrl: 'templates/recoverpw.html',
     controller: 'RecoverpwCtrl'
   })
-
+  .state('booking', {
+      url: '/booking',
+      templateUrl: 'templates/booking.html',
+      controller: 'BookingCtrl'  
+    })
   .state('tab.home', {
     url: '/home',
     views: {
@@ -64,7 +68,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
-
   .state('tab.discover', {
       url: '/discover',
       views: {
@@ -74,7 +77,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('tab.purchase', {
+  
+  .state('tab.purchase', {
       url: '/purchase',
       views: {
         'tab-purchase': {
@@ -83,7 +87,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-
   .state('tab.account', {
     url: '/account',
     views: {
@@ -95,6 +98,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/home');
 
 });

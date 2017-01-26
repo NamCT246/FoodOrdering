@@ -35,6 +35,15 @@ angular.module('starter.controllers', [])
 
 })
 
+.controller("BookingCtrl", function($scope, $ionicHistory, $state){
+  $scope.GoBack = function(){
+   $ionicHistory.nextViewOptions({
+          disableBack: true
+      });
+      $state.go('home');
+  }
+})
+
 .controller("PurchaseCtrl", function($scope){
 
 })
