@@ -27,3 +27,10 @@
 	margin-top: 6px !important;
 	font-size: 1.3em !important;
 }
+.scroll {
+    height: 100%;
+}
+#map {
+    width: 100%;
+    height: 100%;
+}
