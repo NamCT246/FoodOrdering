@@ -57,7 +57,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
   .state('booking', {
       url: '/booking',
       templateUrl: 'templates/booking.html',
-      controller: 'BookingCtrl'  
+      controller: 'BookingCtrl'
     })
   .state('selectmenu', {
     url: '/selectmenu',
@@ -88,7 +88,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     templateUrl: 'templates/location.html',
     controller: 'LocationCtrl'
   })
-  
+
   .state('tab.purchase', {
       url: '/purchase',
       views: {

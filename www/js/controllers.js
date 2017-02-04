@@ -39,8 +39,10 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller("DiscoverCtrl", function($scope){
-
+.controller("DiscoverCtrl", function($scope, $state){
+  $scope.MapView = function(){
+    $state.go('location');
+  }
 })
 .controller("LocationCtrl", function($scope , $state, $cordovaGeolocation, $ionicLoading, $ionicPlatform, $ionicHistory) {
 
@@ -50,7 +52,7 @@ angular.module('starter.controllers', [])
     $ionicLoading.show({
         template: '<ion-spinner icon="bubbles"></ion-spinner><br/>Acquiring location!'
     });
-     
+
     var posOptions = {
         enableHighAccuracy: true,
         timeout: 20000,
@@ -65,11 +67,11 @@ angular.module('starter.controllers', [])
               center: myLatLng,
               zoom: 16,
               mapTypeId: google.maps.MapTypeId.ROADMAP
-          };                
+          };
           var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-          
-          $scope.map = map;   
-          $ionicLoading.hide();   
+
+          $scope.map = map;
+          $ionicLoading.hide();
 
           //wait the map initialize first
           google.maps.event.addListenerOnce($scope.map, 'idle', function(){
@@ -77,14 +79,14 @@ angular.module('starter.controllers', [])
               map: $scope.map,
               animation: google.maps.Animation.DROP,
               position: myLatLng
-          });       
+          });
           var infoWindow = new google.maps.InfoWindow({
               content: "You are here!"
           });
-          infoWindow.open($scope.map, marker);     
+          infoWindow.open($scope.map, marker);
           google.maps.event.addListener(marker, 'click', function () {
               infoWindow.open($scope.map, marker);
-          });  
+          });
         });
           getMoveData();
           google.maps.event.addListener(map,'dragend',getMoveData)
@@ -92,25 +94,25 @@ angular.module('starter.controllers', [])
           $ionicLoading.hide();
           console.log(err);
       });
-      
+
         // this function will find the new lat, lng, and set as the new center
     function getMoveData(){
         center_pos = $scope.map.getCenter();
         new_center_pos = center_pos.toString();
         new_center_pos = new_center_pos.replace('(', '');
-        new_center_pos = new_center_pos.replace(')', ''); 
+        new_center_pos = new_center_pos.replace(')', '');
 
         latlngArray = new Array();
         latlngArray = new_center_pos.split(",")
 
          for (a in latlngArray) {
           latlngArray[a] = parseFloat(latlngArray[a]);
-        }       
+        }
         newLat = latlngArray[0];
         newLng = latlngArray[1];
 
         $scope.map.setCenter({lat: newLat, lng: newLng});
-        showMap(); 
+        showMap();
     }
     //after getting new center, show the data
     function showMap(){
@@ -124,7 +126,7 @@ angular.module('starter.controllers', [])
         };
       var service = new google.maps.places.PlacesService($scope.map);
           service.nearbySearch(request, callback);
-    }  
+    }
     function callback(results, status) {
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
@@ -163,14 +165,14 @@ angular.module('starter.controllers', [])
         markers[i].setMap(null);
       }
       markers = [];
-    } 
-  }); 
+    }
+  });
   $scope.GoBack = function(){
    $ionicHistory.nextViewOptions({
           disableBack: true
       });
-      $state.go('home');
-  }   
+      $state.go('tab.discover');
+  }
 })
 
 .controller("BookingCtrl", function($scope, $ionicHistory, $state){
@@ -178,7 +180,7 @@ angular.module('starter.controllers', [])
    $ionicHistory.nextViewOptions({
           disableBack: true
       });
-      $state.go('home');
+      $state.go('tab.home');
   }
 })
 
