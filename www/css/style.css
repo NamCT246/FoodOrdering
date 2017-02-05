@@ -1,7 +1,77 @@
+/*login */
 .login-background{
-	background: url('../img/background.jpg') no-repeat center;
-	padding-top: 50px;
+	padding-top: 10%;
 }
+
+.loginImage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+		width:130px !important;
+		height:130px !important;
+}
+
+.username {
+    height: 38px;
+		margin : 0px 12% 10px 12% !important;
+}
+
+.password{
+    height: 38px;
+		margin : 0px 12% 10px 12% !important;
+}
+
+.btnLogin{
+	margin : -0.5em 20% 0 20% !important;
+}
+
+.btnLogin-size{
+	font-size: 1em !important;
+}
+
+.subLogin{
+    margin-top: 40px !important;
+    text-align: center;
+}
+
+/*Sign up */
+.bannerSignup{
+    margin-top: 45px !important;
+}
+
+.nameSignup{
+		 margin : 1.5em 10% 0 10% !important;
+}
+
+.emailSignup{
+    height: 30px;
+		margin : 0 10% 21px 10% !important;
+}
+
+.pwSignup{
+    height: 30px;
+    margin : 0 10% 21px 10% !important;
+}
+
+.confirmPwSignup{
+		height: 30px;
+		margin : 0 10% 21px 10% !important;
+}
+
+.phoneSignup{
+		height: 30px;
+		margin : 0 10% 21px 10% !important;
+}
+
+.btnSignup{
+    width: 200px;
+    height: 20px !important;
+}
+.signup{
+		margin : -0.5em 20% 0 20% !important;
+}
+
+/*    */
 
 .item-price{
 	padding-top: 30px;

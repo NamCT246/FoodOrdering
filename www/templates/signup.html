@@ -1,21 +1,51 @@
-<ion-header-bar align-title="center">
-    <div class="buttons" >
-        <button class="button button-icon ion-android-arrow-back" ng-click="GoBack()"> Login</button>
-    </div>
+<ion-header-bar align-title="center" class="bar-assertive">
+    <button class="button button-icon ion-android-arrow-back" ng-click="GoBack()"></button>
+    <h1 class="title">Sign up</h1>
 </ion-header-bar>
-<ion-content class="has-header login-background">
-<div class="list">
-  <label class="item item-input">
-    <span class="input-label">Username</span>
-    <input type="text" ng-model="newuser.name">
-  </label>
-  <label class="item item-input">
-    <span class="input-label">Password</span>
-    <input type="password" ng-model="newuser.password">
-  </label>
 
-</div>
-<button class="col col-33 col-offset-33 button button-assertive" ng-click="Signup()">
-    Sign up
-</button>
+<ion-content class="has-header">
+    <div class="bannerSignup">
+        <h4 style="color: orangered; text-align: center;">JOIN WITH US - GET MORE BENEFIT</h4>
+    </div>
+
+    <div class="nameSignup">
+        <div class="row ">
+            <div class="col">
+                <label class="item item-input" style="height: 30px !important;">
+                    <input type="text" placeholder="First Name">
+                </label>
+            </div>
+
+            <div class="col">
+                <label class="item item-input" style="height: 30px !important; padding-top: 2px;">
+                    <input type="text" placeholder="Last Name">
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="list list-inset" style="margin-top: 11px !important;">
+        <label class="item item-input emailSignup">
+          <input type="text" placeholder="Email">
+        </label>
+
+        <label class="item item-input pwSignup">
+          <input type="text" placeholder="Password">
+        </label>
+
+        <label class="item item-input confirmPwSignup">
+          <input type="text" placeholder="Confirm Password">
+        </label>
+
+        <label class="item item-input phoneSignup">
+          <input type="text" placeholder="Phone number">
+        </label>
+    </div>
+
+    <div class="signup">
+        <button class="button button-block button-assertive">
+            Sign up
+        </button>
+    </div>
+
 </ion-content>
