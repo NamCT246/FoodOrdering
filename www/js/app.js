@@ -5,7 +5,13 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
+angular.module('config', []).constant('API_ENDPOINT', {
+  url: 'http://localhost:5000/'
+});
+
+angular.module('starter.services', ['config']);
+
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,8 +29,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
-
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  $ionicConfigProvider.tabs.position('bottom');
+  $ionicConfigProvider.tabs.style('standard');
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -35,7 +42,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
   .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: 'templates/tabs.html',
+    resolve: { islogged: function(User){
+        return User.isLogged();
+      }
+    }
   })
 
   // Each tab has its own nav history stack:
@@ -64,7 +75,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     templateUrl: 'templates/menu-selection.html',
     controller: 'selectmenuCtrl'
   })
-
   .state('tab.home', {
     url: '/home',
     views: {
@@ -74,12 +84,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
       }
     }
   })
-  .state('tab.discover', {
-      url: '/discover',
+  .state('tab.finder', {
+      url: '/finder',
       views: {
-        'tab-discover': {
-          templateUrl: 'templates/tab-discover.html',
-          controller: 'DiscoverCtrl'
+        'tab-finder': {
+          templateUrl: 'templates/tab-finder.html',
+          controller: 'FinderCtrl'
         }
       }
     })
@@ -89,12 +99,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     controller: 'LocationCtrl'
   })
 
-  .state('tab.purchase', {
-      url: '/purchase',
+  .state('tab.orders', {
+      url: '/orders',
       views: {
-        'tab-purchase': {
-          templateUrl: 'templates/tab-purchase.html',
-          controller: 'PurchaseCtrl'
+        'tab-orders': {
+          templateUrl: 'templates/tab-orders.html',
+          controller: 'OrdersCtrl'
         }
       }
     })
@@ -109,6 +119,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/home');
+  $urlRouterProvider.otherwise('/login');
 
 });
