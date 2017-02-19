@@ -74,8 +74,15 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller("HomeCtrl", function($scope){
+.controller("HomeCtrl", function($scope,$state, Restaurants){
+    $scope.$on('$ionicView.enter', function(){
 
+      Restaurants.list().then(function(data){
+        $scope.restaurants = data;
+        console.log(data);
+      });
+
+    });
 })
 
 .controller("FinderCtrl", function($scope, $state){
