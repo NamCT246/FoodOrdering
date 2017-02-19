@@ -1,5 +1,6 @@
 angular.module('starter.controllers', [])
 
+// Authentication controllers
 .controller("LoginCtrl", function($scope, $state, $http, $ionicPopup, $ionicHistory, User){
   $scope.GoToSignup = function(){
     $state.go('signup');
@@ -65,6 +66,35 @@ angular.module('starter.controllers', [])
       $state.go('login');
   }
 })
+
+// Booking controllers
+.controller("RestaurantCtrl", function($scope, $ionicHistory, $state, $http){
+  $scope.GoBack = function(){
+   $ionicHistory.nextViewOptions({
+          disableBack: true
+      });
+      $state.go('tab.home');
+  }
+})
+
+.controller("RestaurantMenuCtrl", function($scope, $ionicHistory, $state, $http){
+  $scope.GoBack = function(){
+   $ionicHistory.nextViewOptions({
+          disableBack: true
+      });
+      $state.go('restaurant');
+  }
+})
+
+.controller("BookingCtrl", function($scope, $ionicHistory, $state, $http){
+  $scope.GoBack = function(){
+   $ionicHistory.nextViewOptions({
+          disableBack: true
+      });
+      $state.go('restaurant_menu');
+  }
+})
+
 .controller("selectmenuCtrl", function($scope, $ionicHistory, $state, $http){
   $scope.GoBack = function(){
    $ionicHistory.nextViewOptions({
@@ -74,6 +104,17 @@ angular.module('starter.controllers', [])
   }
 })
 
+.controller("BookingTestCtrl", function($scope, $ionicHistory, $state){
+  $scope.GoBack = function(){
+   $ionicHistory.nextViewOptions({
+          disableBack: true
+      });
+      $state.go('tab.orders');
+  }
+})
+
+
+// Tabs Controllers
 .controller("HomeCtrl", function($scope){
 
 })
@@ -212,15 +253,6 @@ angular.module('starter.controllers', [])
           disableBack: true
       });
       $state.go('tab.finder');
-  }
-})
-
-.controller("BookingCtrl", function($scope, $ionicHistory, $state){
-  $scope.GoBack = function(){
-   $ionicHistory.nextViewOptions({
-          disableBack: true
-      });
-      $state.go('tab.orders');
   }
 })
 

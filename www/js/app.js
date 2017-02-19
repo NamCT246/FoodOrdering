@@ -42,11 +42,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html',
-    resolve: { islogged: function(User){
-        return User.isLogged();
-      }
-    }
+    templateUrl: 'templates/tabs.html'
   })
 
   // Each tab has its own nav history stack:
@@ -65,16 +61,36 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
     templateUrl: 'templates/recoverpw.html',
     controller: 'RecoverpwCtrl'
   })
+
+  // States for booking an ORDER in a SPECIFIC RESTAURANT
+  .state('restaurant', {
+      url: '/restaurant',
+      templateUrl: 'templates/Booking_steps/restaurant.html',
+      controller: 'RestaurantCtrl'
+  })
+  .state('restaurant_menu', {
+      url: '/restaurant/menu',
+      templateUrl: 'templates/Booking_steps/restaurant_menu.html',
+      controller: 'RestaurantMenuCtrl'
+  })
+  .state('booking_confirm', {
+      url: '/restaurant/menu/confirm',
+      templateUrl: 'templates/Booking_steps/confirm_booking.html',
+      controller: 'BookingCtrl'
+  })
+
   .state('booking', {
       url: '/booking',
       templateUrl: 'templates/booking.html',
-      controller: 'BookingCtrl'
-    })
+      controller: 'BookingTestCtrl'
+  })
   .state('selectmenu', {
     url: '/selectmenu',
     templateUrl: 'templates/menu-selection.html',
     controller: 'selectmenuCtrl'
   })
+
+  // States for tab
   .state('tab.home', {
     url: '/home',
     views: {
@@ -119,6 +135,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/restaurant');
 
 });

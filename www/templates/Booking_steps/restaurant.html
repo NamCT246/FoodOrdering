@@ -1,0 +1,33 @@
+<ion-header-bar align-title="center" class="bar-assertive">
+  <div class="buttons">
+    <button class="button button-icon ion-android-arrow-back" ng-click="GoBack()"></button>
+  </div>
+  <h1 class="title">Hesburger</h1>
+  <div class="buttons" >
+    <button class="button" >Confirm</button>
+  </div>
+</ion-header-bar>
+
+<ion-content cache-view="false">
+		<div class="card">
+			<div class="item item-avatar item-thumbnail-left avatar-bar-custom" href="#">
+				<img ng-src="img/hesburger.png">
+				<h2 class="padding-top">Address</h2>
+        <p>Isokatu 40</p>
+				<!-- <button class="button button-icon icon ion-android-more-vertical btn-avatar" ></button> -->
+			</div>
+
+      <div class="item item-text-wrap">
+        Restaurant's description <br>
+        a <br>
+        b <br>
+        c <br>
+      </div>
+
+			<div class="button-bar">
+				<a class="button button-icon icon ion-ios-telephone-outline " ng-click="toggleLike(post)"></a>
+        <a class="button button-icon icon ion-ios-navigate-outline " ng-click="comment(post)"></a>
+				<a class="button button-icon icon ion-ios-compose-outline assertive" ng-click="comment(post)"></a>
+			</div>
+		</div>
+</ion-content>
