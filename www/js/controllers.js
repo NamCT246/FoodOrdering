@@ -104,6 +104,7 @@ angular.module('starter.controllers', [])
   }
 })
 
+<<<<<<< HEAD
 .controller("BookingTestCtrl", function($scope, $ionicHistory, $state){
   $scope.GoBack = function(){
    $ionicHistory.nextViewOptions({
@@ -116,7 +117,17 @@ angular.module('starter.controllers', [])
 
 // Tabs Controllers
 .controller("HomeCtrl", function($scope){
+=======
+.controller("HomeCtrl", function($scope,$state, Restaurants){
+    $scope.$on('$ionicView.enter', function(){
+>>>>>>> e0db08a581cd395d0b7a27d5982667d877cd022a
 
+      Restaurants.list().then(function(data){
+        $scope.restaurants = data;
+        console.log(data);
+      });
+
+    });
 })
 
 .controller("FinderCtrl", function($scope, $state){
