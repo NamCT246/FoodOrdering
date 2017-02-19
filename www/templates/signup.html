@@ -26,24 +26,25 @@
 
     <div class="list list-inset" style="margin-top: 11px !important;">
         <label class="item item-input emailSignup">
-          <input type="text" placeholder="Email">
-        </label>
-
-        <label class="item item-input pwSignup">
-          <input type="text" placeholder="Password">
-        </label>
-
-        <label class="item item-input confirmPwSignup">
-          <input type="text" placeholder="Confirm Password">
+          <input type="text" placeholder="Email" ng-model="newuser.username">
         </label>
 
         <label class="item item-input phoneSignup">
           <input type="text" placeholder="Phone number">
         </label>
+
+        <label class="item item-input pwSignup" >
+          <input type="password" placeholder="Password" ng-model="newuser.password">
+        </label>
+
+        <label class="item item-input confirmPwSignup">
+          <input type="password" placeholder="Confirm Password">
+        </label>
+
     </div>
 
     <div class="signup">
-        <button class="button button-block button-assertive">
+        <button class="button button-block button-assertive" ng-click="signup()">
             Sign up
         </button>
     </div>

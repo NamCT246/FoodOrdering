@@ -1,21 +1,60 @@
 angular.module('starter.controllers', [])
 
-.controller("LoginCtrl", function($scope, $state){
+.controller("LoginCtrl", function($scope, $state, $http, $ionicPopup, $ionicHistory, User){
   $scope.GoToSignup = function(){
     $state.go('signup');
   }
   $scope.Recoverpw = function(){
     $state.go('recoverpw');
   }
+  $scope.user = {
+    username: "",
+    password: ""
+  };
+  $scope.login = function () {
+    User.login($scope.user.username, $scope.user.password).then(function(){
+      $ionicHistory.nextViewOptions({
+        disableBack: true
+      });
+      $state.go('tab.home');
+    }).catch(function(){
+      var alertPopup = $ionicPopup.alert({
+        title: 'Login fail',
+        template: 'Incorrect username or password'
+      });
+    });
+  };
 })
 
-.controller("SignupCtrl", function($scope, $state, $ionicHistory){
+.controller("SignupCtrl", function($scope, $state, $ionicHistory,$ionicPopup, User){
   $scope.GoBack = function(){
    $ionicHistory.nextViewOptions({
           disableBack: true
       });
       $state.go('login');
   }
+
+  $scope.newuser = {
+   username: "",
+   password: ""
+  };
+
+  $scope.signup = function()
+  {
+   User.signup($scope.newuser.username, $scope.newuser.password).then(function(){
+     var alertPopup = $ionicPopup.alert({
+       title: 'Signup successful',
+       template: 'Great success!'
+     });
+     $state.go('login');
+   }).catch(function(){
+     var alertPopup = $ionicPopup.alert({
+       title: 'Signup fail',
+       template: 'Missing somethings'
+     });
+   });
+  }
+
 })
 
 .controller("RecoverpwCtrl", function($scope, $ionicHistory, $state){
@@ -26,7 +65,7 @@ angular.module('starter.controllers', [])
       $state.go('login');
   }
 })
-.controller("selectmenuCtrl", function($scope, $ionicHistory, $state){
+.controller("selectmenuCtrl", function($scope, $ionicHistory, $state, $http){
   $scope.GoBack = function(){
    $ionicHistory.nextViewOptions({
           disableBack: true
@@ -39,11 +78,12 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller("DiscoverCtrl", function($scope, $state){
+.controller("FinderCtrl", function($scope, $state){
   $scope.MapView = function(){
     $state.go('location');
   }
 })
+
 .controller("LocationCtrl", function($scope , $state, $cordovaGeolocation, $ionicLoading, $ionicPlatform, $ionicHistory) {
 
   var center_pos, new_center_pos, markers;
@@ -171,7 +211,7 @@ angular.module('starter.controllers', [])
    $ionicHistory.nextViewOptions({
           disableBack: true
       });
-      $state.go('tab.discover');
+      $state.go('tab.finder');
   }
 })
 
@@ -180,12 +220,22 @@ angular.module('starter.controllers', [])
    $ionicHistory.nextViewOptions({
           disableBack: true
       });
-      $state.go('tab.home');
+      $state.go('tab.orders');
   }
 })
 
-.controller("PurchaseCtrl", function($scope){
+.controller("OrdersCtrl", function($scope, User, Orders){
 
+  $scope.$on('$ionicView.enter', function(){
+    User.getLoggedUser().then(function(userdata){
+       $scope.user =  userdata;
+       console.log($scope.user.id);
+       Orders.all($scope.user.id).then(function(orderdata){
+          $scope.orders = orderdata;
+          console.log($scope.orders);
+       });
+    });
+  });
 })
 
 .controller("AccountCtrl", function($scope){

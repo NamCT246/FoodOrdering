@@ -9,15 +9,17 @@
 
     <div class="list list-inset">
         <label class="item item-input username">
-          <input type="text" placeholder="Username">
+          <input type="text" placeholder="Username" ng-model="user.username">
         </label>
 
         <label class="item item-input password">
-          <input type="text" placeholder="Password">
+          <input type="password" placeholder="Password" ng-model="user.password">
         </label>
     </div>
     <div class="btnLogin">
-      <button class="button button-block button-small button-assertive btnLogin-size">
+      <button class="button button-block button-small button-assertive btnLogin-size"
+              ng-click="login()"
+      >
           Login
       </button>
     </div>

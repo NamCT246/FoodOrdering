@@ -1,3 +1,13 @@
+.tabs-color-assertive .tab-item.tab-item-active,
+ .tabs-color-assertive .tab-item.active,
+  .tabs-color-assertive .tab-item.activated {
+    color: #ff1200 !important;
+}
+.tabs-color-assertive .tab-item {
+	color: rgba(93, 93, 93, 0.4) !important;
+	opacity: 1 !important;
+}
+
 /*login */
 .login-background{
 	padding-top: 10%;
@@ -71,6 +81,56 @@
 		margin : -0.5em 20% 0 20% !important;
 }
 
+/* Orders */
+.item .item-image-custom {
+	top: 0 !important;
+	left: 0 !important;
+	max-width:  100px !important;
+	max-height: 300px !important;
+	border: 2px solid #ef473a;
+}
+
+.item .item-name-custom {
+	color : #ef473a !important;
+	font-weight: 700;
+}
+
+.item-status-custom {
+	font-weight: 700 !important;
+	top: em;
+	right: 1.5em;
+	margin: 0px !important;
+}
+
+.item-status-name-custom {
+	color : #8bc34a !important;
+	font-weight: 700 !important;
+}
+.item p {
+	color: #7d7d7d !important;
+}
+.item p span {
+	color:  !important;
+}
+
+.order-info {
+}
+/*css divider*/
+hr {
+   display: block;
+   position: relative;
+   padding: 0;
+   margin: 8px auto;
+   height: 0;
+   width: 100%;
+   max-height: 0;
+   font-size: 1px;
+   line-height: 0;
+   clear: both;
+   border: none;
+   border-top: 1px solid #aaaaaa;
+   border-bottom: 1px solid #ffffff;
+}
 /*    */
 
 .item-price{
