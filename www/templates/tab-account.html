@@ -1,14 +1,17 @@
 <ion-view>
   <ion-nav-title>
-      Account
+      {{ curr_user.First_name }} {{ curr_user.Last_name }} 
   </ion-nav-title>
   <ion-nav-buttons class="button-bar" side="right">
         <a class="button button-icon ion-log-out" href="#/login"></a>
   </ion-nav-buttons>
   <ion-content>
     <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
+    <p> Phone: {{ curr_user.Phone }} </p>
+    <p> Gender: {{ curr_user.Gender }} </p>
+    <p> Enroll date: {{ curr_user.Enrolldate }} </p>
+    <ion-toggle>
+        Auto Update
     </ion-toggle>
 
     </ion-list>

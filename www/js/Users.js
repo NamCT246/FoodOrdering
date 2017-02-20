@@ -57,6 +57,18 @@ angular.module('starter.services')
       return $q(function(resolve, reject){
           resolve(user);
       });
+    },
+
+    getUserInfo: function(userID){
+        user_info = [];
+        return $q(function(resolve, reject){
+            $http.post(API_ENDPOINT.url + "account", { id: userID}).then(function(response){
+                user_info = response.data;
+                resolve(user_info);
+            },function(err){
+                reject();
+            });
+        });
     }
   };
 })
