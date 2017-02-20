@@ -43,10 +43,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html',
-  //   resolve: { islogged: function(User){
-  //       return User.isLogged();
-  //     }
-  //   }
+    // resolve: { islogged: function(User){
+    //     return User.isLogged();
+    //   }
+    // }
   })
 
   // Each tab has its own nav history stack:

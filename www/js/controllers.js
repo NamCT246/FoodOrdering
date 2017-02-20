@@ -149,10 +149,21 @@ angular.module('starter.controllers', [])
 
       Restaurants.list().then(function(data){
         $scope.restaurants = data;
-        console.log(data);
       });
 
     });
+})
+
+.controller("AccountCtrl", function($scope, User){
+   $scope.$on('$ionicView.enter', function(){
+    User.getLoggedUser().then(function(userdata){
+       $scope.user =  userdata;
+       User.getUserInfo($scope.user.id).then(function(data){
+          $scope.curr_user = data[0];
+          console.log(data[0]);
+       });
+    });
+  });
 })
 
 .controller("FinderCtrl", function($scope, $state){
@@ -304,8 +315,6 @@ angular.module('starter.controllers', [])
        });
     });
   });
-})
-
-.controller("AccountCtrl", function($scope){
-
 });
+
+

@@ -161,6 +161,28 @@ hr {
 .scroll {
     height: 100%;
 }
+#search{
+	background: #ef473a;
+	height:80px;
+}
+.search-bar{
+	position: relative;
+	top:20%;
+	left: 10%;
+	width: 70%;
+	
+}
+#inputSearch{
+	border-radius: 10px;
+	border: 1px solid #ef473a;
+	padding: 15px;
+	background:  #e6675d;
+}
+.ion-compass{
+	font-size: 20px;
+	margin-left: 10px;
+}
+
 #map {
     width: 100%;
     height: 100%;
