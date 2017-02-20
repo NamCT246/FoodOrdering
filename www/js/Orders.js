@@ -21,8 +21,7 @@ angular.module('starter.services')
         {
             return $q(function(resolve, reject) {
               var newOrder = {
-                    order_id: "order-1",
-                    user_id: 5 ,
+                    user_id: 2 ,
                     restaurant_id: 5,
                     order_price: 20,
                     status: "Processing"
