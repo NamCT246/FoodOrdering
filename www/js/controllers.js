@@ -79,32 +79,59 @@ angular.module('starter.controllers', [])
 
 .controller("RestaurantMenuCtrl", function($scope, $ionicHistory, $state, $http){
   $scope.GoBack = function(){
-   $ionicHistory.nextViewOptions({
+    $ionicHistory.nextViewOptions({
           disableBack: true
       });
-      $state.go('restaurant');
+    $state.go('restaurant');
   }
+
+  $scope.GoNext = function(){
+    $ionicHistory.nextViewOptions({
+          disableBack: true
+    });
+    $state.go('booking_confirm');
+  }
+
 })
 
-.controller("BookingCtrl", function($scope, $ionicHistory, $state, $http){
+.controller("BookingCtrl", function($scope, $ionicHistory, $state, $http, $ionicPopup, $ionicPopup, Orders){
   $scope.GoBack = function(){
-   $ionicHistory.nextViewOptions({
+    $ionicHistory.nextViewOptions({
           disableBack: true
-      });
-      $state.go('restaurant_menu');
+    });
+    $state.go('restaurant_menu');
   }
+
+  $scope.ConfirmOrder = function () {
+    Orders.new().then(function(){
+      $ionicHistory.nextViewOptions({
+        disableBack: true
+      });
+      $state.go('tab.home');
+      var alertPopup = $ionicPopup.alert({
+        title: 'Order successfully!',
+        template: 'Your order has been processed. You can check the status of your order in order tab.'
+      });
+    }).catch(function(){
+      var alertPopup = $ionicPopup.alert({
+        title: 'Order fail',
+        template: 'Something wrong with server. Please try again!'
+      });
+    });
+  };
+
 })
 
 .controller("selectmenuCtrl", function($scope, $ionicHistory, $state, $http){
   $scope.GoBack = function(){
-   $ionicHistory.nextViewOptions({
+    $ionicHistory.nextViewOptions({
           disableBack: true
-      });
+    });
       $state.go('login');
   }
+
 })
 
-<<<<<<< HEAD
 .controller("BookingTestCtrl", function($scope, $ionicHistory, $state){
   $scope.GoBack = function(){
    $ionicHistory.nextViewOptions({
@@ -112,15 +139,13 @@ angular.module('starter.controllers', [])
       });
       $state.go('tab.orders');
   }
+
 })
 
 
 // Tabs Controllers
-.controller("HomeCtrl", function($scope){
-=======
 .controller("HomeCtrl", function($scope,$state, Restaurants){
     $scope.$on('$ionicView.enter', function(){
->>>>>>> e0db08a581cd395d0b7a27d5982667d877cd022a
 
       Restaurants.list().then(function(data){
         $scope.restaurants = data;

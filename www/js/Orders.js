@@ -17,49 +17,17 @@ angular.module('starter.services')
                 });
             });
         },
-        // most recent posts
-        recent: function()
-        {
-            return $q(function(resolve, reject){
-                resolve(posts);
-            });
-        },
-        // search posts based on tags
-        searchTag: function()
-        {
-            return $q(function(resolve, reject){
-                resolve(posts);
-            });
-        },
-
-        // get all posts of single user
-        getUserPosts: function(userId)
-        {
-            return $q(function(resolve, reject){
-
-                // execute the search and return results
-                resolve(posts); // placeholder
-            });
-        },
-        new: function(loguserid, logusername, imageUri, caption)
+        new: function( User_id, Order_id, Menus, Prices, Status )
         {
             return $q(function(resolve, reject) {
-              var newPost = {
-                  id: posts.length,
-                  user: {
-                      id: loguserid,
-                      username: logusername,
-                      profileImageSmall: "http://core0.staticworld.net/images/article/2015/11/111915blog-donald-trump-100629006-primary.idge.jpg"
-                  },
-                  image: imageUri,
-                  imageThumbnail: imageUri, // no special thumbnail yet, but there will be when the image is eventually uploaded to server
-                  likes: 0,
-                  userLike: false,
-                  caption: caption,
-                  tags: [],  // tag identification logic not yet implemented
-                  comments: []
-              };
-              $http.post(API_ENDPOINT.url + "posts", newPost).then(function(response){
+              var newOrder = {
+                    order_id: "order-1",
+                    user_id: 5 ,
+                    restaurant_id: 5,
+                    order_price: 20,
+                    status: "Processing"
+                  };
+              $http.post(API_ENDPOINT.url + "orders/new", newOrder).then(function(response){
 
                 if(response.status == 200)
                 {

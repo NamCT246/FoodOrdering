@@ -4,24 +4,32 @@
   </div>
   <h1 class="title">Hesburger</h1>
   <div class="buttons" >
-    <button class="button" >Confirm</button>
+    <button class="button" ng-click="GoNext()">Next</button>
   </div>
 </ion-header-bar>
 
 <ion-content>
   <div class="list">
-    <a class="item item-thumbnail-left order-info" href="#">
-      <img class="item-image-custom" src="img/coca.jpeg">
-        <div class="">
-          <h2 class="item-name-custom">Order ID: {{order.Order_id}}</h2>
-          <p>{{order.NameRestaurant}}</p>
-        </div>
-        <div class="">
-          <h2 class= "item-status-custom">Status: <span class="item-status-name-custom">{{order.Status}}</span></h2>
-          <hr>
-          <p>Order date: <span>{{order.Date_Order}}</span></p>
-          <p>Deliver date: <span>{{order.Date_Deli}}</span></p>
-        </div>
-    </a>
+    <ion-checkbox>
+      <a class="item item-thumbnail-left" href="#">
+        <img src="img/burger.jpg">
+          <h2>Burger 1</h2>
+          <p class="price">Price: 5$</p>
+      </a>
+    </ion-checkbox>
+    <ion-checkbox>
+      <a class="item item-thumbnail-left" href="#">
+        <img src="img/burger.jpg">
+          <h2>Burger 1</h2>
+          <p class="price">Price: 5$</p>
+      </a>
+    </ion-checkbox>
+    <ion-checkbox>
+      <a class="item item-thumbnail-left" href="#">
+        <img src="img/burger.jpg">
+          <h2>Burger 1</h2>
+          <p class="price">Price: 5$</p>
+      </a>
+    </ion-checkbox>
   </div>
 </ion-content>

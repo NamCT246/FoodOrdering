@@ -42,15 +42,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   .state('tab', {
     url: '/tab',
     abstract: true,
-<<<<<<< HEAD
-    templateUrl: 'templates/tabs.html'
-=======
     templateUrl: 'templates/tabs.html',
   //   resolve: { islogged: function(User){
   //       return User.isLogged();
   //     }
   //   }
->>>>>>> e0db08a581cd395d0b7a27d5982667d877cd022a
   })
 
   // Each tab has its own nav history stack:
@@ -143,10 +139,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
   });
 
   // if none of the above states are matched, use this as the fallback
-<<<<<<< HEAD
   $urlRouterProvider.otherwise('/restaurant');
-=======
-  $urlRouterProvider.otherwise('/tab/home');
->>>>>>> e0db08a581cd395d0b7a27d5982667d877cd022a
 
 });

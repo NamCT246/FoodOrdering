@@ -4,10 +4,10 @@
   </ion-nav-title>
 	<ion-content>
 	<div class="list card" ng-repeat="restaurant in restaurants">
-		<div class="item" style="display: inline-flex;">
+		<a class="item" style="display: inline-flex;" href="#/restaurant">
 		  <img ng-src="{{ restaurant.Restaurant_logo }}" width="100" height="100">
 		  <h1>{{ restaurant.Name }}</h1>
-		</div>
+		</a>
 	</div>
 	</ion-content>
 </ion-view>
