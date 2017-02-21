@@ -1,17 +1,21 @@
 <ion-view>
   <ion-nav-title>
-      {{ curr_user.First_name }} {{ curr_user.Last_name }} 
+      {{ curr_user.First_name }} {{ curr_user.Last_name }}
   </ion-nav-title>
   <ion-nav-buttons class="button-bar" side="right">
         <a class="button button-icon ion-log-out" href="#/login"></a>
   </ion-nav-buttons>
   <ion-content>
+    <div class="item-avatar item-thumbnail-left">
+      <img class="img-custom" src="img/profile.jpg">
+      <a class="button button-icon button-stable btn-edit"><b>Edit Your Profile</b></a>
+    </div>
     <ion-list>
-    <p> Phone: {{ curr_user.Phone }} </p>
-    <p> Gender: {{ curr_user.Gender }} </p>
-    <p> Enroll date: {{ curr_user.Enrolldate }} </p>
+    <p class="item"> Phone: {{ curr_user.Phone }} </p>
+    <p class="item"> Gender: {{ curr_user.Gender }} </p>
+    <p class="item"> Enroll date: {{ curr_user.Enrolldate }} </p>
     <ion-toggle>
-        Auto Update
+        Auto Receive Notification
     </ion-toggle>
 
     </ion-list>

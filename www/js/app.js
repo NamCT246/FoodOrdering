@@ -6,7 +6,7 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('config', []).constant('API_ENDPOINT', {
-  url: 'http://localhost:5000/'
+  url: 'https://food-order-server.herokuapp.com/'
 });
 
 angular.module('starter.services', ['config']);
